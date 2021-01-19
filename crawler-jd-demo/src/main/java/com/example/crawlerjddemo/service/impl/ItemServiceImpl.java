@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -16,6 +17,7 @@ public class ItemServiceImpl implements ItemService {
     private ItemDao itemDao;
 
     @Override
+    @Transactional
     public void save(Item item) {
         itemDao.save(item);
     }

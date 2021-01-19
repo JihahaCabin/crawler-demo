@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.HashMap;
 import java.util.UUID;
 
 @Component
@@ -20,7 +21,7 @@ public class HttpUtils {
 
     private PoolingHttpClientConnectionManager cm;
 
-    private static final String picPath = "D:\\Java爬虫\\crawler-jd-demo\\src\\main\\resources\\images\\";
+    private static final String picPath = "D:\\images\\";
 
     public HttpUtils(){
         this.cm = new PoolingHttpClientConnectionManager();
@@ -45,6 +46,11 @@ public class HttpUtils {
 
         //设置请求信息
         httpGet.setConfig(this.getConfig());
+        httpGet.setHeader("Accept", "*/*");
+        httpGet.setHeader("Accept-Encoding", "gzip, deflate, br");
+        httpGet.setHeader("Accept-Language", "zh-CN,zh;q=0.9,en;q=0.8");
+        httpGet.setHeader("refer", "https://search.jd.com/");
+        httpGet.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36");
 
         //使用httpClient发起请求，获取响应
         CloseableHttpResponse response= null;

@@ -17,7 +17,7 @@ public class Item {
 
     private String title;
 
-    private String price;
+    private Double price;
 
     private String pic;
 
@@ -60,11 +60,11 @@ public class Item {
         this.title = title;
     }
 
-    public String getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
