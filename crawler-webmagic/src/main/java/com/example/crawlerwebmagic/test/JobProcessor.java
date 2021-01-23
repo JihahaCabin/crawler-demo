@@ -36,7 +36,13 @@ public class JobProcessor implements PageProcessor {
     }
 
 
-    private Site site = Site.me();
+    private Site site = Site.me()
+            .setCharset("utf-8") //设置编码
+            .setTimeOut(10 * 1000) //设置超时时间
+            .setRetrySleepTime(10 * 1000) //设置重试的间隔时间
+            .setRetryTimes(10) //设置重试次数
+
+            ;
 
     /**
      * @return
