@@ -3,6 +3,7 @@ package com.example.crawlerwebmagic.test;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
+import us.codecraft.webmagic.pipeline.FilePipeline;
 import us.codecraft.webmagic.processor.PageProcessor;
 
 public class JobProcessor implements PageProcessor {
@@ -50,6 +51,8 @@ public class JobProcessor implements PageProcessor {
     public static void main(String[] args) {
         Spider.create(new JobProcessor())
                 .addUrl("https://helpcenter.jd.com/") //设置要爬取的页面
+                .addPipeline(new FilePipeline("D:\\images\\result")) //将爬取的结果放在文件中
+                .thread(5) //多线程处理
                 .run();
     }
 }
